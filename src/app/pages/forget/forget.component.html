@@ -1,0 +1,56 @@
+<section class="my-4 w-75 mx-auto" *ngIf="step1">
+    <h2>please enter your email </h2>
+    <form [formGroup]="forgetForm"  (ngSubmit)="forgetPassword()">
+        <div >
+           
+            <input type="text" id="email" class="form-control p-3" formControlName="email" placeholder="Email">
+
+        </div>
+        <div class="mb-3" *ngIf="forgetForm.get('email')?.errors  && forgetForm.get('email')?.touched">
+            <p *ngIf="forgetForm.get('email')?.getError('required')" class="text-danger">* Email required</p>
+            <p *ngIf="forgetForm.get('email')?.getError('email')" class="text-danger">* Email InValid Format</p>
+
+           </div>        
+            <p class="mb-0 text-danger w-75 ">{{errorMassage}}</p>
+            <p class="mb-0 text-main w-75 ">{{displayMassage}}</p>
+    
+           
+
+        <button class="btn btn-outline-primary mt-2">verify</button>
+    </form>
+</section>
+
+<section class="my-4 w-75 mx-auto" *ngIf="step2">
+    <h2>please enter your verification code</h2>
+
+    <form [formGroup]="resetCodeForm" (ngSubmit)="resetCode()">
+        <div >
+            <label for="res">
+            </label>
+            <input type="text" id="res" placeholder="Reset Code" class="form-control  p-3" formControlName="resetCode">
+        </div>
+        <p class="mb-0 text-danger w-75 ">{{errorMassage}}</p>
+        <p class="mb-0 text-main w-75 ">{{displayMassage}}</p>
+
+        <button class="btn btn-outline-primary mt-2">verify</button>
+    </form>
+</section>
+
+
+<section class="my-4 w-75 mx-auto" *ngIf="step3">
+    <h2>reset your account password</h2>
+
+    <form [formGroup]="resetPasswordForm"  (ngSubmit)="resetPassword()">
+        <div  >
+            <label for="pass">
+            </label>
+            <input type="password" id="pass" placeholder="Reset Password" class="form-control  p-3" formControlName="newPassword">
+            <input type="text" id="email" class="form-control p-3 mt-2" formControlName="email" placeholder="Email">
+
+        </div>
+        <p class="mb-0 text-danger w-75 ">{{errorMassage}}</p>
+        <p class="mb-0 text-main w-75 ">{{displayMassage}}</p>
+
+        <button class="btn btn-outline-primary mt-2">reset password</button>
+    </form>
+</section>

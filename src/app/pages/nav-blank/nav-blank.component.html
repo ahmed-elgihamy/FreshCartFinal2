@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary ">
+    <div class="container ">
+ 
+      <a class="navbar-brand" [routerLink]="['/home']"><img src="assets/images/freshcart-logo.svg" alt="freshcart-logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  routerLink="home"  routerLinkeActive="activee " >Home</a>
+          </li>
+         
+
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  routerLink="/product"  routerLinkeActive=" active" >Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  routerLink="/wishList"  routerLinkeActive="active-link" > Wishlist</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  routerLink="/categories"  routerLinkeActive="active-link" >Categories</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page"  routerLink="/brands"  routerLinkeActive="active-link" >Brands</a>
+          </li>
+    
+        </ul>
+     
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item">
+            <a class="nav-link position-relative"  routerLink="/cart"  routerLinkeActive="active-link" >
+          
+              <i class="fas fa-cart-shopping fa-xl text-main"></i>
+              <span class="badge bg-info position-absolute top-0 end-0">{{cartN}}</span>
+            </a>
+          </li>
+            <!-- <li class="nav-item align-self-center">
+                <i class="fa-brands px-1  fa-facebook"></i>
+                <i class="fa-brands px-1  fa-twitter"></i>
+                <i class="fa-brands px-1  fa-instagram"></i>
+                <i class="fa-brands px-1  fa-youtube"></i>
+                <i class="fa-brands px-1  fa-linkedin"></i>
+
+              </li> -->
+
+
+            <li class="nav-item">
+              <button class="nav-link " aria-current="page"   (click)="logOut()">log out</button>
+            </li>
+  
+  
+      
+          </ul>
+      </div>
+    </div>
+  </nav>

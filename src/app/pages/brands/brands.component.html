@@ -1,0 +1,15 @@
+<section class="py-5 container">
+    <h1 class="text-main text-center">All Brands</h1>
+
+<div class="row gy-5 mb-5 mt-1">
+    <div *ngFor="let brand of allBrands" class="col-md-2">
+        <div class="product p-2">
+            <img [src]="brand.image" class="w-100" [alt]="brand.name">
+            <p class="text-main fw-bolder text-center">{{brand.name}}</p>
+        </div>
+    </div>
+</div>
+
+
+</section>
+<app-footer></app-footer>

@@ -1,0 +1,78 @@
+
+
+<section *ngIf="count ==0"  class=" bg-empty">
+
+
+        
+    <div class="w-50 mx-auto  pt-5">
+     <img src="../../../assets/images/empty-wishlist.png" class="w-100" alt="">
+ </div>
+ </section>
+<section class="py-4 w-75 mx-auto " *ngIf="count>0" >
+
+    <div class="row g-4 ">
+        <div class="text-center wishList">
+            <i class="fa-regular fa-heart wishList"></i>
+            <h1 class="fo">My WishList</h1>
+        </div>
+     
+      <div class="col-md-3" *ngFor=" let product of products">
+    
+    <div  class=" product p-2 cursor-pointer">
+    
+      <!-- =======heart====== -->
+      <i *ngIf="!wishList.includes(product._id)"  (click)="addfav(product._id)"   class="fa-solid fa-heart-crack heart"></i>
+      <i  *ngIf="wishList.includes(product._id)" (click)="removeFav(product._id)"    class="fa-solid fa-heart heart"></i>
+         <div [routerLink]="['/details' , product._id]">
+    
+    
+      <img [src]="product.imageCover" class="w-100" [alt]="product.title">
+      <h3 class="h6">{{product.category.name  | textTerm:2}}</h3>
+      <h4 class="h6 ">{{product.title | textTerm:2}}</h4>
+      
+      <div class="d-flex justify-content-between algin-items-center">
+      
+       <span> <strong>{{product.price | currency: 'EUR'}} </strong></span>
+       <div>
+     <i class="fas fa-star rating-color" ></i>
+    
+        <span>{{product.ratingsQuantity}}</span>
+      </div>
+      
+       </div>
+     </div>
+    
+    
+    
+     <button class="btn-main w-100" (click)=" addCart(product._id)">Add to Cart</button>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+      </section>
+    

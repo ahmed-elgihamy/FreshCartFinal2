@@ -1,0 +1,80 @@
+
+<section *ngIf="numberOfCartItem ==0"  class=" bg-empty">
+        
+   <div class="w-50 mx-auto  pt-5">
+    <img src="../assets/images/empty-cart.png" class="w-100" alt="">
+</div>
+</section>
+<section class="w-75 mx-auto bg-main-light p-4 rounded-4 my-4" *ngIf="numberOfCartItem>0" >
+ 
+    
+    <h1>Shope Cart</h1>
+    <p class="text-main h4">
+
+        Total Price: {{cartDetails.totalCartPrice| currency: 'EUR'}}
+    </p>
+
+    <div class="row border-bottom pb-3" *ngFor=" let item of cartDetails.products">
+
+
+        <div class="col-md-2">
+
+            <img [src]="item.product.imageCover" alt="" class="w-100">
+
+        </div>
+
+
+        <div class="col-md-10">
+
+            <div class=" d-flex justify-content-between algin-items-center mt-4">
+                <div>
+
+                    <h3 class="h4">
+                        {{item.product.title | textTerm:2}}
+                    </h3>
+                    <p class="text-main ">
+
+                        Price: {{item.price| currency: 'EUR'}}
+                    </p>
+
+                    <button class=" btn p-0 m-0" (click)="deleteProduct(item.product._id)">
+                        <i class="fa-regular  fa-trash-can text-main"></i>
+                        Remove</button>
+
+                </div>
+
+
+
+                <div class="d-block">
+                    <button class=" btn border border-success p-2 m-1"
+                    
+                    (click)="changeCount(item.product._id , item.count +1)"
+                    > + </button>
+                    <span>{{item.count}}</span>
+                    <button class=" btn border border-success p-2 m-1"
+                    (click)="changeCount(item.product._id , item.count -1)"
+
+                    > - </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+<button class="btn btn-main " [routerLink]="['/checkout' , cartDetails._id]">Online Payment  <img src="../../../assets/images/visa-1.svg" alt=""></button>
+
+</section>
