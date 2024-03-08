@@ -1,4 +1,4 @@
-<div class="container  py-5">
+<div class="container  py-5 ">
 
     <div class="w-75 mx-auto">
      <h1>Login Now :</h1>
@@ -8,7 +8,9 @@
      {{msgError}}
   
  </div>
-  
+  <div class="row">
+
+<div class="col-md-4">
      
      <div class="form-group mb-3">
          <label for="email">Email</label>
@@ -19,8 +21,9 @@
              <p *ngIf="loginForm.get('email')?.getError('email')" class="text-danger">* Email InValid Format</p>
             </div>
      </div>
-   
-     
+    </div>
+    <div class="col-md-4">
+
      <div class="form-group mb-3">
          <label for="pass">Password</label>
          <input type="password" id="pass" class="form-control" formControlName="password">
@@ -31,6 +34,9 @@
             </div>
      
      </div>
+    </div>
+    <div class="col-md-4">
+
   <div class="d-flex align-items-center justify-content-between">
 
     <div >
@@ -47,19 +53,23 @@
         </p>
         
        </div>
-      <button class="btn bg-main text-white d-block ms-auto mt-0" [disabled]="loginForm.invalid" >
-        
-        <i *ngIf="isLoading" class="fa fa-spinner fa-spin "></i>
-        <span *ngIf="!isLoading">Login</span>
-    
-    </button>
-    
+   
   </div>
- 
+</div>
+
+
+</div>
+<button class="btn bg-main text-white d-block ms-auto mt-0" [disabled]="loginForm.invalid" >
+        
+    <i *ngIf="isLoading" class="fa fa-spinner fa-spin "></i>
+    <span *ngIf="!isLoading">Login</span>
+
+</button>
+
      </form>
      
-     
+    </div> 
      
     </div>
      
-     
+
